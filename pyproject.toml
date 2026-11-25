@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flowmap-lab"
+version = "0.1.0"
+description = "A compact, runnable reference implementation of FLM / FMLM (flow matching + flow map distillation) with experiments and an HTTP inference service."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "zhangjianbang-nb" }]
+keywords = ["flow-matching", "flow-map", "language-model", "pytorch", "research"]
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+flowmap-train = "flowmap.train:main"
+flowmap-eval = "flowmap.eval:main"
+flowmap-serve = "flowmap.serve:main"
+flowmap-ablate = "flowmap.ablate:main"
+
+[tool.setuptools]
+packages = ["flowmap"]
+include-package-data = true

@@ -1,0 +1,6 @@
+base: configs/loglinear_tiny.yaml
+train_steps: 1000
+max_runs: 6
+axes:
+  algo: [flm, fmlm]
+  schedule.k: [2.0, 4.0, 8.0]

@@ -1,0 +1,31 @@
+algo: flm
+seed: 0
+device: auto
+
+data:
+  kind: markov
+  vocab: 16
+  seq_len: 16
+
+model:
+  arch: transformer
+  d_model: 64
+  n_layers: 2
+  n_heads: 4
+  causal: true
+
+schedule:
+  k: 4.0
+
+train:
+  steps: 1500
+  batch_size: 128
+  lr: 0.001
+  weight_decay: 0.01
+  ema_decay: 0.999
+  log_every: 100
+  ckpt_every: 500
+
+eval:
+  n: 256
+  sample_steps: 8

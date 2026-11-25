@@ -1,0 +1,25 @@
+algo: flm
+seed: 0
+device: auto
+
+data:
+  kind: toy
+
+model:
+  arch: auto
+
+schedule:
+  name: linear
+
+train:
+  steps: 2000
+  batch_size: 256
+  lr: 0.002
+  weight_decay: 0.01
+  ema_decay: 0.999
+  log_every: 100
+  ckpt_every: 500
+
+eval:
+  n: 512
+  sample_steps: 8
