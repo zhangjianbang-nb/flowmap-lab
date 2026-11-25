@@ -1,5 +1,7 @@
 # flowmap-lab
 
+[![CI](https://github.com/zhangjianbang-nb/flowmap-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/zhangjianbang-nb/flowmap-lab/actions/workflows/ci.yml)
+
 一个**从零实现、可运行、可复现**的 FLM / FMLM 参考工程：连续 token 上的 flow matching、flow-map 蒸馏、一步生成、消融实验、HTTP 推理服务，全部包含在一个小型 Python 包里。
 
 > 这不是论文官方代码的复制品。官方实现（[david3684/flm](https://github.com/david3684/flm)）面向大规模语料与多机训练；本项目用**干净房间式重写**把同一套数学压缩到单机可跑的最小闭环，便于读懂、验证和二次实验。
@@ -128,6 +130,18 @@ flowmap-lab/
 - 不是大规模语言模型训练代码：没有分布式、FSDP、flash-attn、数据管道。
 - 2-D 与 Markov 任务只验证算法闭环，不代表真实文本生成质量。
 - flow-map 蒸馏的上限由教师决定；教师未充分收敛时，一步图会继承其模糊性。
+
+## 发布校验
+
+首次发布后做了三遍独立校验，结果如下（2026-11-26）：
+
+| 轮次 | 校验方式 | 结果 |
+|---|---|---|
+| 1 | GitHub API 读取 `main` 树，与本地 `git ls-tree -r HEAD` 逐文件比对 blob SHA | 34/34 完全一致 |
+| 2 | 从 GitHub 重新克隆到干净目录，跑 `python -m unittest discover -s tests` | 24 项全部 OK（16.9 s） |
+| 3 | 查 Actions 运行记录 + 远端 README/CI 配置可读性 | CI `completed/success`，提交 `818da6f` |
+
+更新后 CI 徽章应显示为 passing；若失败，以 Actions 页面为准。
 
 ## 许可
 
