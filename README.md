@@ -4,6 +4,9 @@
 
 一个**从零实现、可运行、可复现**的 FLM / FMLM 参考工程：连续 token 上的 flow matching、flow-map 蒸馏、一步生成、消融实验、HTTP 推理服务，全部包含在一个小型 Python 包里。
 
+> **论文**：Flow Map Language Models: One-step Language Modeling via Continuous Denoising
+> **URL**：<https://arxiv.org/abs/2602.16813>（PDF：<https://arxiv.org/pdf/2602.16813>）
+>
 > 这不是论文官方代码的复制品。官方实现（[david3684/flm](https://github.com/david3684/flm)）面向大规模语料与多机训练；本项目用**干净房间式重写**把同一套数学压缩到单机可跑的最小闭环，便于读懂、验证和二次实验。
 
 ## 它包含什么
